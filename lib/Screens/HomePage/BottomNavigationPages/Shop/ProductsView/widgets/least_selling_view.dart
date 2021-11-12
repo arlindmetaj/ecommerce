@@ -32,7 +32,7 @@ class _LeastSellingViewState extends State<LeastSellingView> {
           ListView.builder(
             shrinkWrap: true,
             itemCount: leastSelling.length,
-            physics: const NeverScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return Container(
                 height: 80,
@@ -47,7 +47,7 @@ class _LeastSellingViewState extends State<LeastSellingView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(
-                      width: 10,
+                      width: 1,
                     ),
                     SizedBox(
                       height: 80,

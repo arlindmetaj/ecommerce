@@ -32,7 +32,7 @@ class _LeastSellingViewState extends State<LeastSellingView> {
           ListView.builder(
             shrinkWrap: true,
             itemCount: leastSelling.length,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return Container(
                 height: 80,
@@ -44,14 +44,14 @@ class _LeastSellingViewState extends State<LeastSellingView> {
                       color: Colors.grey.shade500,
                     )),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      width: 1,
+                      width: 5,
                     ),
                     SizedBox(
-                      height: 80,
-                      width: 80,
+                      height: 72,
+                      width: 72,
                       child: Image.asset(leastSelling[index].image),
                     ),
                     const SizedBox(

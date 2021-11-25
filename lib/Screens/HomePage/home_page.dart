@@ -1,3 +1,4 @@
+import 'package:e_commerce/Localization/dart_localization.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeCategories/home_categories.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeProfile/home_profile.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/home_screen.dart';
@@ -32,24 +33,35 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: Colors.white,
       body: _navigatePages.elementAt(selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white.withOpacity(0.9),
+        elevation: 0,
         currentIndex: selectedIndex,
         onTap: _onTapPages,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.red,
         selectedLabelStyle: const TextStyle(color: Colors.black),
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
+            icon: const Icon(Icons.home),
+            label: DemoLocalization.of(context)!.getTranslatedValue("home"),
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Categories"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: "Cart"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            icon: const Icon(Icons.menu),
+            label: DemoLocalization.of(context)!.getTranslatedValue("categories"),
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.shopping_cart),
+            label: DemoLocalization.of(context)!.getTranslatedValue("cart"),
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.person),
+            label: DemoLocalization.of(context)!.getTranslatedValue("profile"),
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -61,10 +73,14 @@ class _HomePageState extends State<HomePage> {
             elevation: 5.0,
             backgroundColor: Colors.red,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Shop()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Shop()));
             },
-            tooltip: 'Increment',
-            child: const Icon(Icons.shopping_bag, size: 25,),
+            tooltip: 'Shop',
+            child: const Icon(
+              Icons.shopping_bag,
+              size: 25,
+            ),
           ),
         ),
       ),

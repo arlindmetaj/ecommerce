@@ -1,0 +1,45 @@
+{
+  "search": "Suche",
+  "top_categories": "Top Kategorien",
+  "brands": "Marken",
+  "top_sellers": "Verkaufsrenner",
+  "today_deal": "Heutiges Angebot",
+  "flash_deal": "Flash Angebot",
+  "featured_categories": "Beliebte Kategorien",
+  "featured_products": "Empfohlene Produkte",
+
+  "home": "Heim",
+  "categories": "Kategorien",
+  "cart": "Wagen",
+  "profile": "Profil",
+
+  "login_to": "Einloggen in",
+  "email": "Email",
+  "or,Login with a phone": "oder,Loggen Sie sich mit einer Telefonnummer ein",
+  "password": "Passwort",
+  "forgot_password": "Passwort vergessen?",
+  "login": "Anmeldung",
+  "or,create a new account": "oder ein neues Konto erstellen?",
+  "sign_up": "Unterschreiben",
+
+  "join": "Verbinden",
+  "name": "Name",
+  "name_surname": "Vorname Nachname",
+  "phone": "Telefon",
+  "or,Register with phone number": "oder,Mit Telefonnummer registrieren",
+  "or,Register with email": "oder, mit E-Mail registrieren",
+  "password_register": "Das Passwort muss mindestens 6 Zeichen enthalten",
+  "retype_password": "Passwort erneut eingeben",
+  "already": "Sie haben bereits ein Konto?",
+
+  "not_logged_in": "Nicht eingeloggt",
+  "change_language": "Sprache ändern",
+  "log_out": "Ausloggen",
+
+  "language": "Sprache",
+
+  "search_here": "Suche hier",
+  "sellers": "Verkäufer",
+  "filter": "Gefiltert",
+  "sort": "Sortieren"
+}

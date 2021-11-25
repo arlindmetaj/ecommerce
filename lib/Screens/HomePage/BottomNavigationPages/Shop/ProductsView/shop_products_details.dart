@@ -67,7 +67,6 @@ class _ShopProductsDetailsState extends State<ShopProductsDetails> {
                         allowHalfRating: true,
                         spacing: 2.0,
                         onRated: (value) {
-                          print("rating value -> $value");
                           // print("rating value dd -> ${value.truncate()}");
                         },
                       ),

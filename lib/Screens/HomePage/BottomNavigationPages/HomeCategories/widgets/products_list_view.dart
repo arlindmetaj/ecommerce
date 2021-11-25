@@ -1,4 +1,5 @@
 import 'package:e_commerce/Models/category_products.dart';
+import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeCategories/widgets/category_details_list.dart';
 import 'package:flutter/material.dart';
 
 class ProductsListView extends StatefulWidget {
@@ -50,13 +51,26 @@ class _ProductsListViewState extends State<ProductsListView> {
                           fontSize: 13,
                           fontWeight: FontWeight.bold),
                     ),
-                    Text(
-                      products[index].description,
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.underline,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CategoryDetailsView(
+                              image: products[index].image,
+                              name: products[index].name,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        products[index].description,
+                        style: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ],

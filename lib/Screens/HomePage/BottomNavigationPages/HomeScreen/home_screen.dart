@@ -1,4 +1,5 @@
-import 'package:e_commerce/Screens/Drawer/language.dart';
+import 'package:e_commerce/Localization/dart_localization.dart';
+import 'package:e_commerce/Screens/Drawer/drawer.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/widgets/carousel_slider.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/widgets/featured_categories_home.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/widgets/featured_products_home.dart';
@@ -6,7 +7,6 @@ import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/wid
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../home_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +30,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   height: 35,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: Colors.grey, width: 1)),
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Colors.grey, width: 1),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.only(
+                          left: 15,
+                          bottom: 10,
+                        ),
+                        hintText: DemoLocalization.of(context)!
+                            .getTranslatedValue("search")),
+                  ),
                 ),
               ),
             ],
@@ -47,98 +61,20 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: SafeArea(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-               Padding(
-                padding: const EdgeInsets.only(top: 15.0),
-                child: Center(
-                  child: Text(
-                    "Not logged in",
-                    style: TextStyle(
-                      color: Colors.grey.shade500,
-                      fontWeight: FontWeight.w500
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 12,),
-                child: Divider(
-                  height: 1,
-                  thickness: 1,
-                  color: Colors.grey.shade400,
-                ),
-              ),
-              ListTile(
-                minLeadingWidth: 10,
-                minVerticalPadding: 5,
-                leading: const Icon(Icons.translate, size: 20, color: Colors.black54,),
-                title: const Text('Change Language', style: TextStyle(color: Colors.black54),),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Language()));
-                },
-              ),
-              ListTile(
-                minLeadingWidth: 10,
-                minVerticalPadding: 5,
-                leading: const Icon(Icons.home, size: 20, color: Colors.black54,),
-                title: const Text('Home', style: TextStyle(color: Colors.black54),),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
-                },
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 12,),
-                child: Divider(
-                  height: 1,
-                  thickness: 1,
-                  color: Colors.grey.shade400,
-                ),
-              ),
-              ListTile(
-                minLeadingWidth: 10,
-                minVerticalPadding: 5,
-                leading: const Icon(Icons.sensor_door, size: 20, color: Colors.black54,),
-                title: const Text('Log Out', style: TextStyle(color: Colors.black54),),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
+        drawer: const DrawerView(),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 50),
+          scrollDirection: Axis.vertical,
+          physics: const ScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Carousel(),
+              TopCategories(),
+              FeaturedCategoriesHome(),
+              FeaturedProductsHome(),
             ],
           ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        physics: const ScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Carousel(),
-            TopCategories(),
-            FeaturedCategoriesHome(),
-            FeaturedProductsHome(),
-          ],
-        ),
-      )
-    );
+        ));
   }
 }
-
-

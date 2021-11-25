@@ -1,3 +1,4 @@
+import 'package:e_commerce/Localization/dart_localization.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeCategories/widgets/products_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,9 +18,11 @@ class _HomeCategoriesState extends State<HomeCategories> {
           elevation: 0,
           backgroundColor: Colors.grey.shade50,
           centerTitle: true,
-          title: const Text(
-            "Categories",
-            style: TextStyle(
+          title: Text(
+            DemoLocalization.of(context)!
+                .getTranslatedValue("categories")
+                .toString(),
+            style: const TextStyle(
                 color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),

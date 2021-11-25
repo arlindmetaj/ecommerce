@@ -1,3 +1,4 @@
+import 'package:e_commerce/Localization/dart_localization.dart';
 import 'package:e_commerce/Models/featured_categories.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +22,10 @@ class _FeaturedCategoriesHomeState extends State<FeaturedCategoriesHome> {
           alignment: Alignment.centerLeft,
           margin: const EdgeInsets.only(left: 15, bottom: 10),
           height: 30,
-          child: const Text(
-            "Featured Categories",
-            style: TextStyle(color: Colors.black, fontSize: 15),
+          child: Text(
+            DemoLocalization.of(context)!
+                .getTranslatedValue("featured_categories").toString(),
+            style: const TextStyle(color: Colors.black, fontSize: 15),
           ),
         ),
         SizedBox(

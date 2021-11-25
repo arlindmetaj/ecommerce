@@ -1,3 +1,4 @@
+import 'package:e_commerce/Localization/dart_localization.dart';
 import 'package:e_commerce/Models/featured_products.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +20,10 @@ class _FeaturedProductsHomeState extends State<FeaturedProductsHome> {
       children: [
         Container(
           margin: const EdgeInsets.only(left: 15, top: 20, bottom: 15),
-          child: const Text(
-            "Featured Products",
-            style: TextStyle(color: Colors.black, fontSize: 15),
+          child: Text(
+          DemoLocalization.of(context)!
+              .getTranslatedValue("featured_products").toString(),
+            style: const TextStyle(color: Colors.black, fontSize: 15),
           ),
         ),
         GridView.builder(

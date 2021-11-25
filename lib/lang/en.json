@@ -1,0 +1,47 @@
+{
+  "search": "Search",
+  "top_categories": "Top Categories",
+  "top_sellers": "Top Sellers",
+  "today_deal": "Todays Deal",
+  "flash_deal": "Flash Deal",
+  "featured_categories": "Featured Categories",
+  "featured_products": "Featured Products",
+
+  "home": "Home",
+  "categories": "Categories",
+  "cart": "Cart",
+  "profile": "Profile",
+
+  "login_to": "Login to",
+  "email": "Email",
+  "or,Login with a phone": "or,Login with a phone number",
+  "password": "Password",
+  "forgot_password": "Forgot Password?",
+  "login": "Login",
+  "or,create a new account": "or,create a new account?",
+  "sign_up": "Sign Up",
+
+  "join": "Join",
+  "name": "Name",
+  "name_surname": "Name Surname",
+  "phone": "phone",
+  "or,Register with phone number": "or,Register with phone number",
+  "or,Register with email": "or,Register with email",
+  "password_register": "Password must contain at least 6 characters",
+  "retype_password": "Retype Password",
+  "already": "Already have an account?",
+
+  "not_logged_in": "Not logged in",
+  "change_language": "Change Language",
+  "log_out": "Log Out",
+
+  "language": "Language",
+
+  "search_here": "Search here",
+  "filter": "Filter",
+  "sort": "Sort",
+
+  "product": "Product",
+  "sellers": "Sellers",
+  "brands": "Brands"
+}

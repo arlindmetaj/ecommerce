@@ -1,0 +1,47 @@
+{
+  "search": "Chercher",
+  "top_categories": "Principales catégories",
+  "top_sellers": "Meilleures ventes",
+  "today_deal": "Offre du jour",
+  "flash_deal": "Offre éclair",
+  "featured_categories": "Catégories vedettes",
+  "featured_products": "Produits populaires",
+
+  "home": "Accueil",
+  "categories": "Catégories",
+  "cart": "Chariot",
+  "profile": "Profil",
+
+  "login_to": "Se connecter à",
+  "email": "E-mail",
+  "or,Login with a phone": "ou,Connectez-vous avec un numéro de téléphone",
+  "password": "Mot de passe",
+  "forgot_password": "Mot de passe oublié?",
+  "login": "Connexion",
+  "or,create a new account": "ou créer un nouveau compte?",
+  "sign_up": "S'inscrire",
+
+  "join": "Rejoindre",
+  "name": "Nom",
+  "name_surname": "Prénom / nom de famille",
+  "phone": "Téléphone",
+  "or,Register with phone number": "ou,Inscrivez-vous avec le numéro de téléphone",
+  "or,Register with email": "ou,Inscrivez-vous par e-mail",
+  "password_register": "Le mot de passe doit contenir au moins 6 caractères",
+  "retype_password": "Retaper le mot de passe",
+  "already": "Vous avez déjà un compte?",
+
+  "not_logged_in": "Pas connecté",
+  "change_language": "Changer de langue",
+  "log_out": "Se déconnecter",
+
+  "language": "Langue",
+
+  "search_here": "Cherche ici",
+  "filter": "Filtre",
+  "sort": "Sorte",
+
+  "product": "Produit",
+  "sellers": "Les vendeurs",
+  "brands": "Marques"
+}

@@ -1,3 +1,4 @@
+import 'package:e_commerce/Localization/dart_localization.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/Shop/widgets/shop_products_view.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,8 @@ class _ShopState extends State<Shop> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Search here',
+                      hintText: DemoLocalization.of(context)!
+                          .getTranslatedValue("search_here"),
                       hintStyle: TextStyle(
                           color: Colors.grey.shade500,
                           fontSize: 11

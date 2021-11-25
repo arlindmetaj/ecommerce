@@ -1,3 +1,5 @@
+import 'package:e_commerce/Localization/dart_localization.dart';
+import 'package:e_commerce/Localization/localization_constants.dart';
 import 'package:e_commerce/Models/shops_model.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/Shop/ProductsView/shop_products_details.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,15 +15,20 @@ class ShopProductsView extends StatefulWidget {
 class _ShopProductsViewState extends State<ShopProductsView> {
   final List<Shops> shopList = Shops.shopsList;
 
-  String dropDownValue = 'Sellers';
-  var items = [
-    'Product',
-    'Sellers',
-    'Brands',
-  ];
-
   @override
   Widget build(BuildContext context) {
+
+    var items = [
+      getTranslated(context, "product"),
+      getTranslated(context, "sellers"),
+      getTranslated(context, "brands"),
+      // "Products",
+      // "Sellers",
+      // "Brands"
+    ];
+
+    String dropDownValue = items.first.toString();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -39,7 +46,8 @@ class _ShopProductsViewState extends State<ShopProductsView> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 25.0),
                     child: DropdownButton(
-                      underline: DropdownButtonHideUnderline(child: Container()),
+                      underline:
+                          DropdownButtonHideUnderline(child: Container()),
                       style: const TextStyle(
                           color: Colors.black,
                           fontSize: 11,
@@ -52,7 +60,7 @@ class _ShopProductsViewState extends State<ShopProductsView> {
                       },
                       items: items.map((product) {
                         return DropdownMenuItem(
-                          child: Text(product),
+                          child: Text(product.toString()),
                           value: product,
                         );
                       }).toList(),
@@ -69,15 +77,17 @@ class _ShopProductsViewState extends State<ShopProductsView> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
+                  children: [
+                    const Icon(
                       Icons.filter_alt,
                       color: Colors.grey,
                       size: 15,
                     ),
                     Text(
-                      "Filter",
-                      style: TextStyle(
+                      DemoLocalization.of(context)!
+                          .getTranslatedValue("filter")
+                          .toString(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 11,
                           fontWeight: FontWeight.w400),
@@ -93,15 +103,17 @@ class _ShopProductsViewState extends State<ShopProductsView> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
+                  children: [
+                    const Icon(
                       Icons.swap_vertical_circle,
                       color: Colors.grey,
                       size: 15,
                     ),
                     Text(
-                      "Sort",
-                      style: TextStyle(
+                      DemoLocalization.of(context)!
+                          .getTranslatedValue("sort")
+                          .toString(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 11,
                           fontWeight: FontWeight.w400),
@@ -126,8 +138,14 @@ class _ShopProductsViewState extends State<ShopProductsView> {
                   mainAxisSpacing: 10),
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ShopProductsDetails(image: shopList[index].image, name: shopList[index].shopName,)));
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShopProductsDetails(
+                                  image: shopList[index].image,
+                                  name: shopList[index].shopName,
+                                )));
                   },
                   child: Container(
                     height: 120,

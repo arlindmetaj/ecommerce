@@ -17,7 +17,6 @@ class _ShopProductsViewState extends State<ShopProductsView> {
 
   @override
   Widget build(BuildContext context) {
-
     var items = [
       getTranslated(context, "product"),
       getTranslated(context, "sellers"),

@@ -41,5 +41,16 @@
   "search_here": "Suche hier",
   "sellers": "Verkäufer",
   "filter": "Gefiltert",
-  "sort": "Sortieren"
+  "sort": "Sortieren",
+
+  "account": "Konto",
+  "check_balance": "Kontostand prüfen",
+  "in_your_cart": "In Ihrem Warenkorb",
+  "in_wishlist": "Auf Wunschliste",
+  "ordered": "Bestellt",
+  "orders": "Aufträge",
+  "address": "Die Anschrift",
+  "message": "Nachricht",
+  "notifications": "Benachrichtigung",
+  "purchase_history": "Kaufhistorie"
 }

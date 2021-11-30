@@ -17,6 +17,41 @@ class FeaturedProductsDetails extends StatefulWidget {
 class _FeaturedProductsDetailsState extends State<FeaturedProductsDetails> {
   var rating = 3.0;
 
+  final String text =
+      "Flutter is Google’s mobile UI framework for crafting high-quality native interfaces on iOS and Android in record time. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source.";
+
+  late String firstHalf;
+  late String secondHalf;
+
+  bool flag = true;
+
+  int counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      counter--;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    if (text.length > 50) {
+      firstHalf = text.substring(0, 50);
+      secondHalf = text.substring(50, text.length);
+    } else {
+      firstHalf = text;
+      secondHalf = "";
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -295,20 +330,32 @@ class _FeaturedProductsDetailsState extends State<FeaturedProductsDetails> {
                                     borderRadius: BorderRadius.circular(15),
                                     border: Border.all(color: Colors.grey)),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: const [
-                                    Icon(
-                                      Icons.remove,
-                                      size: 25,
-                                      color: Colors.black,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      padding: const EdgeInsets.only(),
+                                      icon: const Icon(
+                                        Icons.remove,
+                                        size: 20,
+                                        color: Colors.black,
+                                      ),
+                                      onPressed: () {
+                                        _decrementCounter();
+                                      },
                                     ),
                                     Text(
-                                      "0",
+                                      "$counter",
                                     ),
-                                    Icon(
-                                      Icons.add,
-                                      size: 25,
-                                      color: Colors.black,
+                                    IconButton(
+                                      padding: const EdgeInsets.only(),
+                                      icon: const Icon(
+                                        Icons.add,
+                                        size: 20,
+                                        color: Colors.black,
+                                      ),
+                                      onPressed: () {
+                                        _incrementCounter();
+                                      },
                                     ),
                                   ],
                                 ),
@@ -367,7 +414,7 @@ class _FeaturedProductsDetailsState extends State<FeaturedProductsDetails> {
                           Row(
                             children: const [
                               Text(
-                                "Sellers",
+                                "Seller",
                                 style: TextStyle(
                                     color: Colors.grey,
                                     fontSize: 14,
@@ -383,36 +430,26 @@ class _FeaturedProductsDetailsState extends State<FeaturedProductsDetails> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              const Text(
-                                "In House Product",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              Container(
-                                margin: const EdgeInsets.only(left: 25),
-                                child: Container(
-                                  height: 25,
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(color: Colors.orange),
-                                      color: Colors.orange.shade200),
-                                  child: const Center(
-                                    child: Text(
-                                      "0",
-                                      style: TextStyle(
-                                          color: Colors.orange,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          const Text(
+                            "In House Product",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          //todo
+                          InkWell(
+                            onTap: (){
+                              chatWithSeller();
+                            },
+                            child: const Text(
+                              "Chat with seller",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.blueAccent,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400),
+                            ),
                           ),
                         ],
                       ),
@@ -420,10 +457,192 @@ class _FeaturedProductsDetailsState extends State<FeaturedProductsDetails> {
                   ],
                 ),
               ),
+              Divider(
+                height: 1,
+                thickness: 1,
+                color: Colors.grey.shade200,
+              ),
+              Container(
+                  margin: const EdgeInsets.only(
+                      top: 10, left: 15, right: 15, bottom: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Description",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      secondHalf.isEmpty
+                          ? Text(firstHalf)
+                          : Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(flag
+                                    ? (firstHalf + "...")
+                                    : (firstHalf + secondHalf)),
+                                InkWell(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: <Widget>[
+                                      Text(
+                                        flag ? "show more" : "show less",
+                                        style:
+                                            const TextStyle(color: Colors.blue),
+                                      ),
+                                    ],
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      flag = !flag;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                    ],
+                  )),
+              Divider(
+                height: 1,
+                thickness: 1,
+                color: Colors.grey.shade200,
+              ),
             ],
           ),
         ),
       ],
+    );
+  }
+  void chatWithSeller(){
+     showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          actions: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  alignment: Alignment.centerLeft,
+                  child: const Text(
+                    "Title",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(bottom: 5, top: 5),
+                  height: 45,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border:
+                      Border.all(color: Colors.grey.shade200)),
+                  child: TextFormField(
+                    //controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    autofillHints: const [AutofillHints.email],
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.only(left: 15),
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: const Text(
+                    "Message*",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(bottom: 10, top: 5),
+                  height: 45,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border:
+                      Border.all(color: Colors.grey.shade200)),
+                  child: TextFormField(
+                    //controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    autofillHints: const [AutofillHints.email],
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.only(left: 15),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 10, right: 10, top: 30, bottom: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.grey.shade300),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "CLOSE",
+                              style: TextStyle(
+                                color: Colors.black45,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w300
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey.shade300),
+                          color: Colors.red
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "SEND",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        );
+      },
     );
   }
 }

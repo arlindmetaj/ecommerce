@@ -1,4 +1,7 @@
+import 'dart:io' as i;
+import 'package:e_commerce/Localization/localization_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AccountDetails extends StatefulWidget {
   const AccountDetails({Key? key}) : super(key: key);
@@ -8,18 +11,104 @@ class AccountDetails extends StatefulWidget {
 }
 
 class _AccountDetailsState extends State<AccountDetails> {
+  i.File? imageFile;
+  final picker = ImagePicker();
+
+  _imgFromCamera() async {
+    PickedFile? pickedFile = await ImagePicker().getImage(
+      source: ImageSource.camera,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      i.File image = i.File(pickedFile.path);
+      setState(() {
+        imageFile = image;
+      });
+    }
+  }
+
+  _imgFromGallery() async {
+    PickedFile? pickedFile = await ImagePicker().getImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      i.File image = i.File(pickedFile.path);
+      setState(() {
+        imageFile = image;
+      });
+    }
+  }
+
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Wrap(
+              children: <Widget>[
+                ListTile(
+                    leading: const Icon(Icons.photo_library),
+                    title: const Text('Gallery'),
+                    onTap: () {
+                      //_loadImage(ImageSource.gallery);
+                      _imgFromGallery();
+                      Navigator.of(context).pop();
+                    }),
+                ListTile(
+                  leading: const Icon(Icons.photo_camera),
+                  title: const Text('Camera'),
+                  onTap: () {
+                    //_loadImage(ImageSource.camera);
+                    _imgFromCamera();
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          height: 100,
-          width: 100,
-          margin: const EdgeInsets.only(bottom: 10),
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.circular(50),
+        GestureDetector(
+          onTap: (){
+            _showPicker(context);
+          },
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            child: CircleAvatar(
+              radius: 50,
+              child: ClipRRect(
+                  child: imageFile == null
+                      ? Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(50)),
+                          width: 100,
+                          height: 100,
+                          child: Icon(
+                            Icons.camera_alt,
+                            color: Colors.grey[800],
+                          ),
+                        )
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.file(
+                            i.File(imageFile!.path),
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        )),
+            ),
           ),
         ),
         const Text(
@@ -46,12 +135,12 @@ class _AccountDetailsState extends State<AccountDetails> {
             borderRadius: BorderRadius.circular(20),
             color: Colors.green,
           ),
-          child: const Center(
+          child: Center(
             child: Text(
-              "Check Balance",
-              style: TextStyle(
+              getTranslated(context, "check_balance").toString(),
+              style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: 11,
                   fontWeight: FontWeight.w500),
             ),
           ),
@@ -60,13 +149,14 @@ class _AccountDetailsState extends State<AccountDetails> {
           height: 5,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 30, right: 30),
+          padding: const EdgeInsets.only(left: 25, right: 25),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Column(
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "00",
                     style: TextStyle(
                         color: Colors.black,
@@ -74,8 +164,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "In your cart",
-                    style: TextStyle(
+                    getTranslated(context, "in_your_cart").toString(),
+                    style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 12,
                         fontWeight: FontWeight.w500),
@@ -83,8 +173,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                 ],
               ),
               Column(
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "08",
                     style: TextStyle(
                         color: Colors.black,
@@ -92,8 +182,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "In wishlist",
-                    style: TextStyle(
+                    getTranslated(context, "in_wishlist").toString(),
+                    style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 12,
                         fontWeight: FontWeight.w500),
@@ -101,8 +191,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                 ],
               ),
               Column(
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "89",
                     style: TextStyle(
                         color: Colors.black,
@@ -110,8 +200,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "Ordered",
-                    style: TextStyle(
+                    getTranslated(context, "ordered").toString(),
+                    style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 12,
                         fontWeight: FontWeight.w500),

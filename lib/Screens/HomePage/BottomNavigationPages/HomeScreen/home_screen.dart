@@ -4,6 +4,7 @@ import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/wid
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/widgets/featured_categories_home.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/widgets/featured_products_home.dart';
 import 'package:e_commerce/Screens/HomePage/BottomNavigationPages/HomeScreen/widgets/top_categories.dart';
+import 'package:e_commerce/Screens/Search/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     border: Border.all(color: Colors.grey, width: 1),
                   ),
                   child: TextFormField(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchScreen()));
+                    },
                     decoration: InputDecoration(
                         prefixIcon: const Icon(
                           Icons.search,

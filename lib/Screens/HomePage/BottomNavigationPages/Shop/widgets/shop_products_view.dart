@@ -27,7 +27,6 @@ class _ShopProductsViewState extends State<ShopProductsView> {
     ];
 
     String dropDownValue = items.first.toString();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

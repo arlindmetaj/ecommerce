@@ -24,7 +24,7 @@
   "join": "Join",
   "name": "Name",
   "name_surname": "Name Surname",
-  "phone": "phone",
+  "phone": "Phone",
   "or,Register with phone number": "or,Register with phone number",
   "or,Register with email": "or,Register with email",
   "password_register": "Password must contain at least 6 characters",
@@ -43,5 +43,16 @@
 
   "product": "Product",
   "sellers": "Sellers",
-  "brands": "Brands"
+  "brands": "Brands",
+
+  "account": "Account",
+  "check_balance": "Check Balance",
+  "in_your_cart": "In your cart",
+  "in_wishlist": "In Wishlist",
+  "ordered": "Ordered",
+  "orders": "Orders",
+  "address": "Address",
+  "message": "Message",
+  "notifications": "Notifications",
+  "purchase_history": "Purchase History"
 }

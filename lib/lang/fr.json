@@ -43,5 +43,16 @@
 
   "product": "Produit",
   "sellers": "Les vendeurs",
-  "brands": "Marques"
+  "brands": "Marques",
+
+  "account": "Compte",
+  "check_balance": "Vérifier le solde",
+  "in_your_cart": "Dans votre panier",
+  "in_wishlist": "Dans la liste de souhaits",
+  "ordered": "Commandé",
+  "orders": "Ordres",
+  "address": "Adresse",
+  "message": "Un message",
+  "notifications": "Notifications",
+  "purchase_history": "Historique d'achat"
 }

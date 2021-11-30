@@ -1,3 +1,4 @@
+import 'package:e_commerce/Localization/localization_constants.dart';
 import 'package:flutter/material.dart';
 
 class ProfileButtons extends StatefulWidget {
@@ -20,7 +21,8 @@ class _ProfileButtonsState extends State<ProfileButtons> {
             color: Colors.grey.shade300,
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20, right: 20, top: 7, bottom: 7),
+            margin:
+                const EdgeInsets.only(left: 20, right: 20, top: 7, bottom: 7),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -42,16 +44,16 @@ class _ProfileButtonsState extends State<ProfileButtons> {
                         ),
                       ),
                     ),
-                    const Text(
-                      "Orders",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400
-                      ),
+                    Text(
+                      getTranslated(context, "orders").toString(),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400),
                     )
                   ],
-                ), Column(
+                ),
+                Column(
                   children: [
                     Container(
                       height: 35,
@@ -69,13 +71,12 @@ class _ProfileButtonsState extends State<ProfileButtons> {
                         ),
                       ),
                     ),
-                    const Text(
-                      "Profile",
-                      style: TextStyle(
+                    Text(
+                      getTranslated(context, "profile").toString(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
+                          fontWeight: FontWeight.w400),
                     )
                   ],
                 ),
@@ -97,13 +98,12 @@ class _ProfileButtonsState extends State<ProfileButtons> {
                         ),
                       ),
                     ),
-                    const Text(
-                      "Address",
-                      style: TextStyle(
+                    Text(
+                      getTranslated(context, "address").toString(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
+                          fontWeight: FontWeight.w400),
                     )
                   ],
                 ),
@@ -125,13 +125,12 @@ class _ProfileButtonsState extends State<ProfileButtons> {
                         ),
                       ),
                     ),
-                    const Text(
-                      "Message",
-                      style: TextStyle(
+                    Text(
+                      getTranslated(context, "message").toString(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
-                          fontWeight: FontWeight.w400
-                      ),
+                          fontWeight: FontWeight.w400),
                     )
                   ],
                 )
@@ -167,15 +166,14 @@ class _ProfileButtonsState extends State<ProfileButtons> {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Notifications",
-                        style: TextStyle(
+                        getTranslated(context, "notifications").toString(),
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 12,
-                            fontWeight: FontWeight.w400
-                        ),
+                            fontWeight: FontWeight.w400),
                       ),
                     )
                   ],
@@ -199,15 +197,14 @@ class _ProfileButtonsState extends State<ProfileButtons> {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "Purchase History",
-                        style: TextStyle(
+                        getTranslated(context, "purchase_history").toString(),
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 12,
-                            fontWeight: FontWeight.w400
-                        ),
+                            fontWeight: FontWeight.w400),
                       ),
                     )
                   ],

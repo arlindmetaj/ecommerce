@@ -21,12 +21,9 @@ class _ShopProductsViewState extends State<ShopProductsView> {
       getTranslated(context, "product"),
       getTranslated(context, "sellers"),
       getTranslated(context, "brands"),
-      // "Products",
-      // "Sellers",
-      // "Brands"
     ];
 
-    String dropDownValue = items.first.toString();
+    String? dropDownValue = getTranslated(context, 'product');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

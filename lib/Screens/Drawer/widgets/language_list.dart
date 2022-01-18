@@ -90,8 +90,7 @@ class _LanguageListState extends State<LanguageList> {
                     });
                   },
                   child: Container(
-                    margin:
-                        const EdgeInsets.only(left: 15, right: 15, bottom: 10),
+                    margin: const EdgeInsets.only(left: 15, right: 15, bottom: 10),
                     height: 45,
                     width: double.infinity,
                     decoration: selectedLang == index

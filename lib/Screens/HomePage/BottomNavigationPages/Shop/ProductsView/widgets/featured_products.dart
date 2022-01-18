@@ -9,7 +9,6 @@ class FeaturedProducts extends StatefulWidget {
 }
 
 class _FeaturedProductsState extends State<FeaturedProducts> {
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,10 +35,11 @@ class _FeaturedProductsState extends State<FeaturedProducts> {
                 itemCount: 6,
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: (130.0 / 180.0),
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10),
+                  crossAxisCount: 2,
+                  childAspectRatio: (130.0 / 180.0),
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
                 itemBuilder: (context, index) {
                   return Container(
                       height: 180,

@@ -81,11 +81,11 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
                 ),
               )),
           Positioned.fill(
-            bottom: 10,
+            bottom: 0,
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: const EdgeInsets.only(left: 10, right: 10),
+                //margin: const EdgeInsets.only(left: 10, right: 10),
                 height: 45,
                 decoration: BoxDecoration(
                   color: Colors.red,
